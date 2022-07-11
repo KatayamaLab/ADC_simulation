@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import random
 
-N = 8192            # サンプル数
+N = 8192        # サンプル数
 dt = 0.0001          # サンプリング周期 [s]
 f1 = 50    # 周波数 [Hz]
 
@@ -11,10 +11,10 @@ x = 100 * np.sin(2*np.pi*f1*t)
 wave = []
 
 for i in range(len(x)):
-    tmp = x[i] + random.uniform(-0.01,0.01)
+    tmp = x[i] + random.uniform(-0.1,0.1)
     wave.append(tmp)
 
-f = np.fft.fft(x)
+f = np.fft.fft(wave)
 # freq = np.fft.fftfreq(N, d=dt)
 freq = np.linspace(0, 1/dt, N)
 amp = np.abs(f) * (2 / N)
@@ -22,7 +22,7 @@ amp = np.abs(f) * (2 / N)
 plt.figure(figsize=(16,9))
 
 plt.subplot(211)
-plt.plot(t, x, label="signal")
+plt.plot(t, wave, label="signal")
 plt.xlabel("time[s]")
 plt.ylabel("voltage[V]")
 plt.grid()
