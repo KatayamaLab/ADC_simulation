@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import random
+import streamlit as st
 
 N = 8192        # サンプル数
 dt = 0.0001          # サンプリング周期 [s]
