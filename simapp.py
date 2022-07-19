@@ -23,20 +23,17 @@ class App:
     
     def side(self):
         st.sidebar.header("各種変数の設定")
-        
-        self.f = st.sidebar.slider("正弦波の周波数[Hz]", min_value=49.0, max_value=51.0, value=50.0)
+
+        self.f = st.sidebar.number_input("", 49.0, 51.0, 50.0)
         st.sidebar.write(f"現在の周波数は{self.f} Hzです")
         
-        self.i = st.sidebar.slider("サンプル数", min_value=5, max_value=15, value=10)
-        self.N = 2 ** self.i
+        self.N = st.sidebar.number_input("サンプル数", 128, 16384, 1024)
         st.sidebar.write(f"現在のサンプル数は{self.N}点です")
         
-        self.j = st.sidebar.slider("サンプリング周期", min_value=1, max_value=6, value=3)
-        self.dt = 1 * 10 ** (-1 * self.j)
+        self.dt = st.sidebar.number_input("サンプリング周期", 1.0 * 10 ** (-6), 1.0 * 10 ** (-1), 1.0 * 10 **(-3))
         st.sidebar.write(f"現在のサンプリング周期は{self.dt} sです")
         
-        self.l = st.sidebar.slider("表示範囲", min_value=1, max_value=10, value=1)
-        self.lim = 100 * self.l        
+        self.lim = st.sidebar.number_input("表示範囲", 100, 1000, 100)
         st.sidebar.write(f"現在の表示範囲は 0<f<{self.lim} です")
         
         self.r = st.sidebar.slider("ランダムなノイズ[V]", min_value=0.0, max_value=10.0, value=0.0)
