@@ -44,19 +44,19 @@ class App:
         plt.rcParams["font.size"] = 18
         
         ax1 = fig.add_subplot(2,1,1)
-        ax1.plot(t, wave, label="signal")
+        ax1.plot(t, wave)
         ax1.set_xlabel("time[s]")
         ax1.set_ylabel("voltage[V]")
         ax1.grid()
-        ax1.legend()
+        # ax1.legend()
         
         ax2 = fig.add_subplot(2,1,2)
         ax2.set_yscale("log")
-        ax2.bar(freq, amp, label="amplitude")
+        ax2.bar(freq, amp)
         ax2.set_xlabel("frequency[Hz]")
         ax2.set_ylabel("amplitude[V]")
         ax2.grid()
-        ax2.legend()
+        # ax2.legend()
         ax2.set_xlim(0,self.lim)
         
         st.pyplot(fig)
