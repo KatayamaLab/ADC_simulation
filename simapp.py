@@ -27,7 +27,7 @@ class App:
         self.f = st.sidebar.number_input("", 49.0, 51.0, 50.0)
         st.sidebar.write(f"現在の周波数は{self.f} Hzです")
         
-        self.N = st.sidebar.number_input("サンプル数", 128, 16384, 1024)
+        self.N = st.sidebar.number_input("サンプル数", 128, 1000000, 1024)
         st.sidebar.write(f"現在のサンプル数は{self.N}点です")
         
         self.dt = st.sidebar.number_input("サンプリング周期", 1.0 * 10 ** (-6), 1.0 * 10 ** (-1), 1.0 * 10 **(-3))
